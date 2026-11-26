@@ -778,7 +778,11 @@
         });
         const data = await res.json().catch(() => ({}));
 
-        if (res.ok || data.success) {
+        // FormSubmit은 거절도 HTTP 200 + {"success":"false"}로 응답하므로 문자열을 정확히 비교한다.
+        const delivered = String(data.success) === 'true';
+        const awaitingActivation = /activat/i.test(data.message || '');
+
+        if (delivered || awaitingActivation) {
           copyTextToClipboard(summaryText);
           showInquiryModal(
             '섭외 문의가 메일로 전송되었습니다',
