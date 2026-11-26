@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>박태석 강사 | 음악기획자 · 작가 · 인문 &amp; 문화산업 특강</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Serif KR & Pretendard/Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans KR"', 'Inter', 'sans-serif'],
+            serif: ['"Noto Serif KR"', 'serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#121C2D',
+              slate: '#1E293B',
+              amber: '#C27D38',
+              amberLight: '#F6ECE1',
+              cream: '#FAF8F5',
+              warmGray: '#F1EFEA',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-cream text-slate-800 font-sans antialiased selection:bg-brand-amber selection:text-white">
+
+  <!-- 상단 네비게이션 -->
+  <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <span class="w-9 h-9 rounded-xl bg-brand-navy text-brand-amber font-serif font-bold text-lg flex items-center justify-center shadow-sm group-hover:bg-brand-amber group-hover:text-white transition-colors">
+          朴
+        </span>
+        <div>
+          <span class="font-serif font-bold text-lg sm:text-xl text-brand-navy tracking-tight">박태석</span>
+          <span class="hidden sm:inline-block text-xs text-slate-500 ml-2 font-medium">음악기획자 · 작가 · 특강강사</span>
+        </div>
+      </a>
+
+      <!-- 데스크톱 메뉴 -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <a href="#about" class="hover:text-brand-navy transition-colors">강사소개</a>
+        <a href="#lectures" class="hover:text-brand-navy transition-colors">강의분야</a>
+        <a href="#book" class="hover:text-brand-navy transition-colors">저서 · 미디어</a>
+        <a href="#career" class="hover:text-brand-navy transition-colors">주요경력</a>
+        <a href="https://blog.naver.com/5469pts" target="_blank" rel="noopener noreferrer" class="text-brand-amber hover:underline flex items-center gap-1">
+          <span>공식 블로그</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </nav>
+
+      <!-- CTA & 모바일 메뉴 버튼 -->
+      <div class="flex items-center gap-2">
+        <a href="#contact" class="px-4 py-2.5 rounded-xl bg-brand-navy text-white text-xs sm:text-sm font-semibold hover:bg-brand-amber transition-colors shadow-sm">
+          강의 섭외 문의
+        </a>
+        <button id="mobile-menu-btn" aria-label="메뉴 열기" class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-200/70 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 모바일 드롭다운 메뉴 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-5 space-y-2 shadow-lg">
+      <a href="#about" class="mobile-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-brand-cream">강사소개</a>
+      <a href="#lectures" class="mobile-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-brand-cream">강의분야</a>
+      <a href="#book" class="mobile-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-brand-cream">저서 · 미디어</a>
+      <a href="#career" class="mobile-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-brand-cream">주요경력</a>
+      <a href="https://blog.naver.com/5469pts" target="_blank" rel="noopener noreferrer" class="block px-3 py-2.5 rounded-xl text-sm font-semibold text-brand-amber hover:bg-brand-amberLight/50">
+        네이버 블로그 바로가기 (blog.naver.com/5469pts) ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- 히어로 섹션 -->
+  <section id="top" class="relative overflow-hidden bg-brand-navy text-white pt-14 pb-20 sm:pt-20 sm:pb-28">
+    <!-- 은은한 배경 장식 -->
+    <div class="absolute inset-0 opacity-15 pointer-events-none">
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-amber blur-3xl"></div>
+      <div class="absolute bottom-0 left-10 w-72 h-72 rounded-full bg-blue-400 blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- 좌측 텍스트 -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-amber text-xs sm:text-sm font-medium">
+            <span>30년 현장 음악기획자</span>
+            <span class="text-white/30">|</span>
+            <span>『좋은 어른은 태도로 말합니다』 저자</span>
+          </div>
+
+          <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-white">
+            무대 뒤 30년의 기록,<br />
+            <span class="text-brand-amber">사람과 태도, 그리고 문화</span>를<br />
+            이야기합니다.
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            국내 최초 트로트 전문 매거진 창간부터 대형 콘서트 기획, 가수 매니지먼트, 대학·음악창작소 강단까지—현장에서 체득한 생생한 문화산업 실무와 사람을 남기는 어른의 태도를 전합니다.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="#contact" class="px-6 py-3.5 rounded-xl bg-brand-amber text-white font-semibold text-sm sm:text-base hover:bg-amber-600 transition-all shadow-lg shadow-amber-950/30">
+              출강 및 특강 문의하기
+            </a>
+            <a href="#lectures" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/15 font-medium text-sm sm:text-base transition-all">
+              강의 커리큘럼 보기
+            </a>
+            <a href="https://blog.naver.com/5469pts" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl text-slate-300 hover:text-white text-sm font-medium underline underline-offset-4">
+              블로그 아카이브 ↗
+            </a>
+          </div>
+
+          <!-- 핵심 지표 -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 max-w-xl">
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl font-bold text-brand-amber">30년+</p>
+              <p class="text-xs sm:text-sm text-slate-400 mt-0.5">음악기획·제작 현장</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl font-bold text-white">국내 최초</p>
+              <p class="text-xs sm:text-sm text-slate-400 mt-0.5">트로트코리아 창간·발행</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl font-bold text-white">대학·기관</p>
+              <p class="text-xs sm:text-sm text-slate-400 mt-0.5">실무·인문 특강 출강</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 우측 프로필 카드 -->
+        <div class="lg:col-span-5">
+          <div class="bg-brand-slate/90 border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-slate-700 border-2 border-brand-amber/60 shrink-0">
+                <img
+                  src="./profile.jpg"
+                  alt="박태석 강사 프로필"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-amber/20 text-brand-amber text-xs font-semibold mb-1.5">
+                  현) 대박기획 대표 · 감독
+                </span>
+                <h2 class="font-serif text-2xl font-bold text-white">박태석 <span class="text-sm font-sans font-normal text-slate-400">Park Tae-seok</span></h2>
+                <p class="text-xs sm:text-sm text-slate-300 mt-1">음악기획자 · 칼럼니스트 · 작가</p>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-sm text-slate-300 border-t border-white/10 pt-5">
+              <div class="flex items-start gap-2.5">
+                <span class="text-brand-amber font-bold mt-0.5">•</span>
+                <span><strong class="text-white">現</strong> 대박기획 대표 (콘서트 기획 · 가수 매니지먼트 · 방송 제작)</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-brand-amber font-bold mt-0.5">•</span>
+                <span><strong class="text-white">現</strong> 배재대학교 특강강사 / 경북음악창작소 특강강사</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-brand-amber font-bold mt-0.5">•</span>
+                <span><strong class="text-white">現</strong> 대전인디음악축전 감독·이사 / 경남일보 기고</span>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <span class="text-brand-amber font-bold mt-0.5">•</span>
+                <span><strong class="text-white">前</strong> 월간 『트로트코리아』 발행인 겸 편집장</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-white/10 flex items-center justify-between gap-2 text-xs text-slate-400">
+              <span class="truncate">이메일: 5469pts@naver.com</span>
+              <button onclick="copyEmail()" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium shrink-0 transition-colors">
+                메일 복사
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 강사 소개 & 철학 섹션 -->
+  <section id="about" class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="text-brand-amber font-semibold text-sm tracking-wider uppercase">About Lecturer</span>
+        <h2 class="font-serif text-2xl sm:text-4xl font-bold text-brand-navy mt-2 leading-snug">
+          “화려한 조명 뒤에서 배운 것은<br class="hidden sm:inline" /> 결국 <span class="text-brand-amber underline decoration-brand-amber/40 underline-offset-8">사람을 대하는 태도</span>였습니다.”
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-11 h-11 rounded-xl bg-brand-amberLight text-brand-amber flex items-center justify-center font-serif font-bold text-xl mb-5">
+            01
+          </div>
+          <h3 class="font-serif text-xl font-bold text-brand-navy mb-2.5">현장 밀착형 실무 통찰</h3>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            이론에 머무르지 않습니다. 30년간 수많은 가수와 무대, 방송 프로그램(&lt;Q MUSIC&gt;, &lt;주간트로트&gt; 등)을 직접 기획·제작하며 겪은 생생한 성공과 위기 극복의 노하우를 나눕니다.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-11 h-11 rounded-xl bg-brand-amberLight text-brand-amber flex items-center justify-center font-serif font-bold text-xl mb-5">
+            02
+          </div>
+          <h3 class="font-serif text-xl font-bold text-brand-navy mb-2.5">개척자 정신과 콘텐츠 기획</h3>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            비주류로 여겨지던 시절 국내 최초 성인가요 전문지 『트로트코리아』를 창간하고 페스티벌을 기획한 개척의 경험을 바탕으로, 시대의 흐름을 읽는 콘텐츠 브랜딩 전략을 제시합니다.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-11 h-11 rounded-xl bg-brand-amberLight text-brand-amber flex items-center justify-center font-serif font-bold text-xl mb-5">
+            03
+          </div>
+          <h3 class="font-serif text-xl font-bold text-brand-navy mb-2.5">공감을 부르는 인문·태도 강의</h3>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            저서 『좋은 어른은 태도로 말합니다』에 담긴 철학처럼, 세대 간 소통과 조직 내 존중, 나다운 삶을 살아가는 어른의 품격에 대해 따뜻하고 울림 있는 강연을 펼칩니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 주요 강의 분야 (탭 필터 + 커리큘럼 카드) -->
+  <section id="lectures" class="py-16 sm:py-24 bg-brand-warmGray border-y border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="text-brand-amber font-semibold text-sm tracking-wider uppercase">Lecture Topics</span>
+          <h2 class="font-serif text-2xl sm:text-4xl font-bold text-brand-navy mt-2">주요 강의 커리큘럼</h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            대상(대학·청년, 지자체·시민, 기업·공공기관, 문화예술인)에 맞춘 맞춤형 특강이 가능합니다.
+          </p>
+        </div>
+
+        <!-- 카테고리 필터 버튼 -->
+        <div class="flex flex-wrap gap-2" id="lecture-filters">
+          <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-navy text-white transition-colors">
+            전체 보기
+          </button>
+          <button data-filter="humanities" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-colors">
+            인문 · 태도 · 리더십
+          </button>
+          <button data-filter="music" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-colors">
+            음악산업 · 엔터실무
+          </button>
+          <button data-filter="culture" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-colors">
+            대중문화 · 지역축제
+          </button>
+        </div>
+      </div>
+
+      <!-- 강의 카드 그리드 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="lecture-grid">
+        <!-- 강의 1 -->
+        <article data-category="humanities" class="lecture-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-amber-50 text-brand-amber text-xs font-semibold border border-amber-200/70">
+                인문 · 태도 · 저자특강
+              </span>
+              <span class="text-xs text-slate-400 font-medium">추천: 지자체 · 도서관 · 기업 임직원</span>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-brand-navy mb-3">
+              좋은 어른은 태도로 말합니다
+            </h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+              나이가 든다고 저절로 어른이 되지 않습니다. 30년 연예·문화 현장에서 만난 수많은 사람들을 통해 발견한 ‘존중받는 어른의 태도’와 관계의 품격을 이야기합니다.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700 bg-brand-cream p-4 rounded-xl">
+              <li>• 말보다 오래 남는 일상의 작은 태도들</li>
+              <li>• 후배와 청년 세대에게 꼰대가 아닌 길잡이가 되는 법</li>
+              <li>• 위기의 순간 드러나는 사람의 진짜 품격</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs text-slate-500">소요시간: 60분 ~ 90분 (질의응답 포함)</span>
+            <button onclick="selectLectureForInquiry('좋은 어른은 태도로 말합니다')" class="text-sm font-semibold text-brand-amber hover:text-amber-700 flex items-center gap-1">
+              이 주제로 문의 →
+            </button>
+          </div>
+        </article>
+
+        <!-- 강의 2 -->
+        <article data-category="music" class="lecture-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold border border-blue-200/70">
+                음악산업 · 실무특강
+              </span>
+              <span class="text-xs text-slate-400 font-medium">추천: 대학교 · 음악창작소 · 예비창업자</span>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-brand-navy mb-3">
+              무대 뒤 30년: 공연 기획과 아티스트 매니지먼트 실무
+            </h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+              콘서트 한 편이 무대에 오르기까지의 전 과정과 신인 발굴·매니지먼트의 핵심을 현직 기획사 대표의 시각으로 생생하게 풀어냅니다.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700 bg-brand-cream p-4 rounded-xl">
+              <li>• 음악 비즈니스 구조와 엔터테인먼트 수익 모델 이해</li>
+              <li>• 로컬 뮤지션과 인디 아티스트의 브랜딩 및 생존 전략</li>
+              <li>• 현장 돌발 상황 대처와 공연 연출의 디테일</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs text-slate-500">소요시간: 90분 ~ 120분 (실무 워크숍 가능)</span>
+            <button onclick="selectLectureForInquiry('무대 뒤 30년: 공연 기획과 아티스트 매니지먼트 실무')" class="text-sm font-semibold text-brand-amber hover:text-amber-700 flex items-center gap-1">
+              이 주제로 문의 →
+            </button>
+          </div>
+        </article>
+
+        <!-- 강의 3 -->
+        <article data-category="culture" class="lecture-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200/70">
+                대중문화 · 스토리텔링
+              </span>
+              <span class="text-xs text-slate-400 font-medium">추천: 시니어대학 · 문화센터 · 지자체</span>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-brand-navy mb-3">
+              노래를 듣고, 사람을 묻다: 한국 대중가요와 트로트의 힘
+            </h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+              전 국민적 신드롬을 일으킨 트로트와 성인가요의 역사를 짚어보며, 시대의 애환을 위로해 온 노래 속 비하인드 스토리를 들려줍니다.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700 bg-brand-cream p-4 rounded-xl">
+              <li>• 국내 최초 『트로트코리아』 창간 비화와 가요계 변천사</li>
+              <li>• 세대를 하나로 묶는 K-트로트 콘텐츠의 매력 분석</li>
+              <li>• 음악을 통해 읽는 한국인의 정서와 인생 이야기</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs text-slate-500">소요시간: 60분 ~ 90분 (토크콘서트 형식 가능)</span>
+            <button onclick="selectLectureForInquiry('노래를 듣고, 사람을 묻다: 한국 대중가요와 트로트의 힘')" class="text-sm font-semibold text-brand-amber hover:text-amber-700 flex items-center gap-1">
+              이 주제로 문의 →
+            </button>
+          </div>
+        </article>
+
+        <!-- 강의 4 -->
+        <article data-category="humanities music" class="lecture-card bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-semibold border border-purple-200/70">
+                진로 · 미디어 · 기획력
+              </span>
+              <span class="text-xs text-slate-400 font-medium">추천: 특성화고 · 대학생 · 청년센터</span>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-brand-navy mb-3">
+              없는 길을 만드는 기획자의 시선: 매거진에서 방송 제작까지
+            </h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+              남들이 가지 않은 영역에서 새로운 미디어와 방송 콘텐츠를 만들어낸 경험을 바탕으로, 진로를 고민하는 청년들에게 실전 기획력과 실행력을 전합니다.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700 bg-brand-cream p-4 rounded-xl">
+              <li>• 남들과 다른 틈새시장을 발견하는 관찰과 기록의 힘</li>
+              <li>• 1인 미디어·뉴미디어 시대의 콘텐츠 제작 프로세스</li>
+              <li>• 현장에서 신뢰받는 파트너가 되는 커뮤니케이션 태도</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs text-slate-500">소요시간: 60분 ~ 90분</span>
+            <button onclick="selectLectureForInquiry('없는 길을 만드는 기획자의 시선')" class="text-sm font-semibold text-brand-amber hover:text-amber-700 flex items-center gap-1">
+              이 주제로 문의 →
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 저서 & 미디어 하이라이트 섹션 -->
+  <section id="book" class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-brand-navy rounded-3xl p-6 sm:p-10 lg:p-12 text-white shadow-xl overflow-hidden relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <!-- 책 표지 비주얼 -->
+          <div class="lg:col-span-4 flex justify-center">
+            <div class="w-52 sm:w-60 aspect-[3/4] rounded-2xl bg-gradient-to-br from-amber-100 via-stone-100 to-amber-200 text-brand-navy p-6 shadow-2xl flex flex-col justify-between border border-white/20 transform -rotate-1 hover:rotate-0 transition-transform">
+              <div>
+                <span class="text-[11px] font-bold tracking-widest text-brand-amber uppercase">Essay · 2026</span>
+                <h3 class="font-serif text-2xl font-bold leading-snug mt-3 text-brand-navy">
+                  좋은 어른은<br />태도로<br />말합니다
+                </h3>
+                <div class="w-10 h-0.5 bg-brand-amber mt-4"></div>
+              </div>
+              <div>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                  노래와 삶에서 발견한<br />사람 · 관계 · 존중의 가치
+                </p>
+                <p class="font-serif font-bold text-sm text-brand-navy">박태석 지음 <span class="font-sans font-normal text-xs text-slate-500">| 부크크</span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 책 & 미디어 소개 -->
+          <div class="lg:col-span-8 space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full bg-brand-amber/20 text-brand-amber text-xs font-semibold">
+              신간 저서 &amp; 저자 강연
+            </span>
+            <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug">
+              『좋은 어른은 태도로 말합니다』
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              30년 동안 무대 뒤에서 수많은 가수와 스태프, 대중을 지켜본 음악기획자 박태석의 첫 에세이입니다. 화려한 언변보다 묵묵한 배려와 일관된 태도가 어떻게 사람의 마음을 움직이고 신뢰를 쌓는지 따뜻한 시선으로 담아냈습니다.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                <p class="text-brand-amber font-semibold text-sm mb-1">방송 · 프로그램 기획</p>
+                <p class="text-xs sm:text-sm text-slate-300">
+                  음악 토크 프로그램 &lt;Q MUSIC (노래를 듣고, 사람을 묻다)&gt; 기획·제작 및 &lt;주간트로트&gt; 콘텐츠 협업
+                </p>
+              </div>
+              <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                <p class="text-brand-amber font-semibold text-sm mb-1">칼럼 · 블로그 아카이브</p>
+                <p class="text-xs sm:text-sm text-slate-300">
+                  네이버 블로그(내맘대로일보) 및 지역 언론 기고를 통해 대중문화 비평과 일상의 사유를 꾸준히 기록
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-3 flex flex-wrap gap-3">
+              <a href="https://blog.naver.com/5469pts" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-brand-amber text-white text-sm font-semibold hover:bg-amber-600 transition-colors">
+                블로그에서 글 더보기 ↗
+              </a>
+              <button onclick="selectLectureForInquiry('『좋은 어른은 태도로 말합니다』 북토크 및 저자 특강')" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white text-sm font-medium border border-white/15 transition-colors">
+                북토크 · 저자 강연 신청
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 주요 경력 및 출강 이력 -->
+  <section id="career" class="py-16 sm:py-24 bg-white border-t border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12">
+        <span class="text-brand-amber font-semibold text-sm tracking-wider uppercase">Profile &amp; History</span>
+        <h2 class="font-serif text-2xl sm:text-4xl font-bold text-brand-navy mt-2">주요 경력 및 출강 이력</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          문화예술 현장과 교육 현장을 잇는 폭넓은 활동을 이어오고 있습니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- 좌측: 주요 현직 및 경력 -->
+        <div class="bg-brand-cream rounded-2xl p-6 sm:p-8 border border-slate-200/70">
+          <h3 class="font-serif text-xl font-bold text-brand-navy mb-6 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-amber"></span>
+            주요 경력 및 직책
+          </h3>
+          <ol class="relative border-l-2 border-brand-amber/40 ml-2 space-y-6">
+            <li class="pl-6 relative">
+              <span class="w-3 h-3 rounded-full bg-brand-amber absolute -left-[7px] top-1.5"></span>
+              <span class="text-xs font-bold text-brand-amber">2019 ~ 현재</span>
+              <h4 class="font-bold text-brand-navy text-base mt-0.5">대박기획 대표</h4>
+              <p class="text-sm text-slate-600 mt-1">콘서트 기획·제작, 가수 매니지먼트, 음악 방송 프로그램(&lt;Q MUSIC&gt; 등) 기획</p>
+            </li>
+            <li class="pl-6 relative">
+              <span class="w-3 h-3 rounded-full bg-brand-navy absolute -left-[7px] top-1.5"></span>
+              <span class="text-xs font-bold text-slate-500">주요 문화예술 활동</span>
+              <h4 class="font-bold text-brand-navy text-base mt-0.5">대전인디음악축전 감독 / 이사</h4>
+              <p class="text-sm text-slate-600 mt-1">지역 인디음악 생태계 활성화 및 음악 페스티벌 총괄 기획·운영</p>
+            </li>
+            <li class="pl-6 relative">
+              <span class="w-3 h-3 rounded-full bg-brand-navy absolute -left-[7px] top-1.5"></span>
+              <span class="text-xs font-bold text-slate-500">언론 · 미디어</span>
+              <h4 class="font-bold text-brand-navy text-base mt-0.5">前 월간 『트로트코리아』 발행인 겸 편집장</h4>
+              <p class="text-sm text-slate-600 mt-1">국내 최초 트로트 전문 매거진 창간(2014), 트로트 페스티벌 기획</p>
+            </li>
+            <li class="pl-6 relative">
+              <span class="w-3 h-3 rounded-full bg-brand-navy absolute -left-[7px] top-1.5"></span>
+              <span class="text-xs font-bold text-slate-500">출판 · 기고</span>
+              <h4 class="font-bold text-brand-navy text-base mt-0.5">『좋은 어른은 태도로 말합니다』 출간 (2026)</h4>
+              <p class="text-sm text-slate-600 mt-1">경남일보 기고(2015~) 및 네이버 블로그 ‘내맘대로일보’ 운영</p>
+            </li>
+          </ol>
+        </div>
+
+        <!-- 우측: 출강 및 강연 영역 -->
+        <div class="bg-brand-cream rounded-2xl p-6 sm:p-8 border border-slate-200/70 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-xl font-bold text-brand-navy mb-6 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-brand-navy"></span>
+              출강 및 강연 영역
+            </h3>
+
+            <div class="space-y-4">
+              <div class="bg-white rounded-xl p-4 border border-slate-200/80">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-bold text-brand-navy text-sm sm:text-base">배재대학교 특강강사</h4>
+                  <span class="text-xs font-semibold text-brand-amber bg-brand-amberLight px-2.5 py-0.5 rounded-md">2025 ~ 현재</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1">문화예술·엔터테인먼트 산업 현장 실무 및 진로 특강</p>
+              </div>
+
+              <div class="bg-white rounded-xl p-4 border border-slate-200/80">
+                <div class="flex items-center justify-between">
+                  <h4 class="font-bold text-brand-navy text-sm sm:text-base">경북음악창작소 특강강사</h4>
+                  <span class="text-xs font-semibold text-brand-amber bg-brand-amberLight px-2.5 py-0.5 rounded-md">2024 ~ 현재</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1">지역 뮤지션 역량 강화, 공연 기획 및 음악 비즈니스 실전 교육</p>
+              </div>
+
+              <div class="bg-white rounded-xl p-4 border border-slate-200/80">
+                <h4 class="font-bold text-brand-navy text-sm sm:text-base">지자체 · 도서관 · 기업 인문특강</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1">『좋은 어른은 태도로 말합니다』 북토크, 세대 공감 소통 및 리더십 강연</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 강사 섭외 안내 박스 -->
+          <div class="mt-6 p-4 rounded-xl bg-brand-navy text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <p class="text-xs text-brand-amber font-semibold">강의안 및 프로필 PDF 요청</p>
+              <p class="text-sm text-slate-200 mt-0.5">기관 결재용 상세 강의계획서 발송 가능</p>
+            </div>
+            <a href="#contact" class="px-4 py-2 rounded-lg bg-brand-amber text-white text-xs font-semibold text-center hover:bg-amber-600 transition-colors shrink-0">
+              자료 요청하기
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 강의 섭외 및 문의 섹션 -->
+  <section id="contact" class="py-16 sm:py-24 bg-brand-warmGray border-t border-slate-200/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-brand-amber font-semibold text-sm tracking-wider uppercase">Lecture Inquiry</span>
+        <h2 class="font-serif text-2xl sm:text-4xl font-bold text-brand-navy mt-2">강의 섭외 및 북토크 문의</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          아래 양식을 작성해 주시면 내용을 확인 후 빠르게 회신드리겠습니다.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+        <form id="inquiry-form" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="org-name" class="block text-sm font-semibold text-brand-navy mb-1.5">기관 / 기업 / 단체명 *</label>
+              <input type="text" id="org-name" required placeholder="예: OO대학교, OO시립도서관" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+            </div>
+            <div>
+              <label for="manager-name" class="block text-sm font-semibold text-brand-navy mb-1.5">담당자 성함 및 직함 *</label>
+              <input type="text" id="manager-name" required placeholder="예: 홍길동 주무관 / 팀장" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="contact-info" class="block text-sm font-semibold text-brand-navy mb-1.5">연락처 (휴대폰 또는 사무실) *</label>
+              <input type="text" id="contact-info" required placeholder="예: 010-0000-0000" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+            </div>
+            <div>
+              <label for="lecture-date" class="block text-sm font-semibold text-brand-navy mb-1.5">희망 강의 일시 및 지역</label>
+              <input type="text" id="lecture-date" placeholder="예: 2026년 12월 중 / 서울·대전" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+            </div>
+          </div>
+
+          <div>
+            <label for="lecture-topic" class="block text-sm font-semibold text-brand-navy mb-1.5">희망 강의 주제 *</label>
+            <input type="text" id="lecture-topic" required placeholder="예: 좋은 어른은 태도로 말합니다 / 공연 기획 실무 특강" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+          </div>
+
+          <div>
+            <label for="lecture-detail" class="block text-sm font-semibold text-brand-navy mb-1.5">세부 문의 내용 (청중 대상, 인원, 강연 시간 등)</label>
+            <textarea id="lecture-detail" rows="4" placeholder="청중 특성(대학생, 시민, 임직원 등)과 예상 인원, 요청 사항을 자유롭게 적어주세요." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20"></textarea>
+          </div>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-slate-500">
+              직접 메일 문의: <strong class="text-brand-navy">5469pts@naver.com</strong> (대박기획)
+            </p>
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-navy text-white font-semibold text-sm hover:bg-brand-amber transition-colors shadow-md">
+              섭외 문의서 작성 완료
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="bg-brand-navy text-slate-400 py-12 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2 text-white font-serif font-bold text-lg">
+          <span>박태석 강사 공식 홈페이지</span>
+          <span class="text-xs font-sans font-normal text-brand-amber">| 대박기획</span>
+        </div>
+        <p class="text-xs sm:text-sm mt-2">
+          음악기획 · 공연연출 · 가수 매니지먼트 · 인문 및 문화산업 특강
+        </p>
+        <p class="text-xs text-slate-500 mt-1">
+          E-mail: 5469pts@naver.com · Blog: blog.naver.com/5469pts
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="https://blog.naver.com/5469pts" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-medium transition-colors">
+          네이버 블로그 (내맘대로일보) ↗
+        </a>
+        <a href="#top" class="px-4 py-2.5 rounded-xl border border-white/15 hover:bg-white/5 text-slate-300 text-xs font-medium transition-colors">
+          맨 위로 ↑
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 커스텀 모달 / 알림창 (alert 대체) -->
+  <div id="custom-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-200">
+      <div class="w-12 h-12 rounded-2xl bg-brand-amberLight text-brand-amber flex items-center justify-center mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <h3 id="modal-title" class="font-serif text-xl font-bold text-brand-navy">문의 내용이 정리되었습니다</h3>
+      <p id="modal-desc" class="text-sm text-slate-600 mt-2 leading-relaxed">
+        작성하신 강의 섭외 문의서가 클립보드에 복사되었습니다. 메일 발송 버튼을 누르시거나 <strong>5469pts@naver.com</strong>으로 붙여넣어 보내주세요.
+      </p>
+      <div id="modal-preview" class="mt-4 p-3.5 rounded-xl bg-brand-cream border border-slate-200 text-xs text-slate-700 whitespace-pre-line max-h-40 overflow-y-auto"></div>
+      <div class="mt-6 flex flex-col sm:flex-row gap-2.5">
+        <a id="mailto-link" href="mailto:5469pts@naver.com" class="flex-1 py-3 px-4 rounded-xl bg-brand-navy text-white text-center text-sm font-semibold hover:bg-brand-amber transition-colors">
+          메일 앱으로 바로 보내기
+        </a>
+        <button onclick="closeModal()" class="py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium transition-colors">
+          닫기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 토스트 메시지 -->
+  <div id="toast" class="hidden fixed bottom-6 right-6 z-50 bg-brand-navy text-white px-4 py-3 rounded-xl shadow-lg text-sm font-medium border border-white/10">
+    이메일 주소(5469pts@naver.com)가 복사되었습니다.
+  </div>
+
+  <!-- 인터랙션 스크립트 -->
+  <script>
+    // 모바일 메뉴 토글
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // 강의 분야 필터링
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const lectureCards = document.querySelectorAll('.lecture-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-brand-navy', 'text-white');
+          b.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+        });
+        btn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+        btn.classList.add('bg-brand-navy', 'text-white');
+
+        lectureCards.forEach(card => {
+          const categories = card.getAttribute('data-category');
+          if (filter === 'all' || categories.includes(filter)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 특정 강의 주제로 문의 폼 자동 채우기
+    function selectLectureForInquiry(topicTitle) {
+      const topicInput = document.getElementById('lecture-topic');
+      topicInput.value = topicTitle;
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => topicInput.focus(), 500);
+    }
+
+    // 이메일 복사 (document.execCommand 사용)
+    function copyTextToClipboard(text) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+      } catch (err) {
+        console.error('복사 실패:', err);
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    function copyEmail() {
+      copyTextToClipboard('5469pts@naver.com');
+      const toast = document.getElementById('toast');
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2500);
+    }
+
+    // 문의 폼 제출 처리 및 모달 표시
+    const inquiryForm = document.getElementById('inquiry-form');
+    const customModal = document.getElementById('custom-modal');
+
+    inquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const org = document.getElementById('org-name').value.trim();
+      const manager = document.getElementById('manager-name').value.trim();
+      const contact = document.getElementById('contact-info').value.trim();
+      const date = document.getElementById('lecture-date').value.trim() || '추후 협의';
+      const topic = document.getElementById('lecture-topic').value.trim();
+      const detail = document.getElementById('lecture-detail').value.trim() || '없음';
+
+      const summaryText =
+        `[박태석 강사 강의 섭외 문의]\n` +
+        `• 기관/단체명: ${org}\n` +
+        `• 담당자: ${manager}\n` +
+        `• 연락처: ${contact}\n` +
+        `• 희망 일시/지역: ${date}\n` +
+        `• 희망 주제: ${topic}\n` +
+        `• 세부 내용: ${detail}`;
+
+      copyTextToClipboard(summaryText);
+
+      document.getElementById('modal-preview').textContent = summaryText;
+      const mailSubject = encodeURIComponent(`[강의섭외문의] ${org} - ${topic}`);
+      const mailBody = encodeURIComponent(summaryText);
+      document.getElementById('mailto-link').href = `mailto:5469pts@naver.com?subject=${mailSubject}&body=${mailBody}`;
+
+      customModal.classList.remove('hidden');
+    });
+
+    function closeModal() {
+      customModal.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
