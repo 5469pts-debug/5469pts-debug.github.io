@@ -548,41 +548,41 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label for="org-name" class="block text-sm font-semibold text-brand-navy mb-1.5">기관 / 기업 / 단체명 *</label>
-              <input type="text" id="org-name" required placeholder="예: OO대학교, OO시립도서관" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+              <input type="text" id="org-name" name="org" required placeholder="예: OO대학교, OO시립도서관" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
             </div>
             <div>
               <label for="manager-name" class="block text-sm font-semibold text-brand-navy mb-1.5">담당자 성함 및 직함 *</label>
-              <input type="text" id="manager-name" required placeholder="예: 홍길동 주무관 / 팀장" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+              <input type="text" id="manager-name" name="manager" required placeholder="예: 홍길동 주무관 / 팀장" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label for="contact-info" class="block text-sm font-semibold text-brand-navy mb-1.5">연락처 (휴대폰 또는 사무실) *</label>
-              <input type="text" id="contact-info" required placeholder="예: 010-0000-0000" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+              <input type="text" id="contact-info" name="contact" required placeholder="예: 010-0000-0000" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
             </div>
             <div>
               <label for="lecture-date" class="block text-sm font-semibold text-brand-navy mb-1.5">희망 강의 일시 및 지역</label>
-              <input type="text" id="lecture-date" placeholder="예: 2026년 12월 중 / 서울·대전" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+              <input type="text" id="lecture-date" name="date" placeholder="예: 2026년 12월 중 / 서울·대전" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
             </div>
           </div>
 
           <div>
             <label for="lecture-topic" class="block text-sm font-semibold text-brand-navy mb-1.5">희망 강의 주제 *</label>
-            <input type="text" id="lecture-topic" required placeholder="예: 좋은 어른은 태도로 말합니다 / 공연 기획 실무 특강" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+            <input type="text" id="lecture-topic" name="topic" required placeholder="예: 좋은 어른은 태도로 말합니다 / 공연 기획 실무 특강" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
           </div>
 
           <div>
             <label for="lecture-detail" class="block text-sm font-semibold text-brand-navy mb-1.5">세부 문의 내용 (청중 대상, 인원, 강연 시간 등)</label>
-            <textarea id="lecture-detail" rows="4" placeholder="청중 특성(대학생, 시민, 임직원 등)과 예상 인원, 요청 사항을 자유롭게 적어주세요." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20"></textarea>
+            <textarea id="lecture-detail" name="detail" rows="4" placeholder="청중 특성(대학생, 시민, 임직원 등)과 예상 인원, 요청 사항을 자유롭게 적어주세요." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20"></textarea>
           </div>
 
           <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-xs text-slate-500">
               직접 메일 문의: <strong class="text-brand-navy">5469pts@naver.com</strong> (대박기획)
             </p>
-            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-navy text-white font-semibold text-sm hover:bg-brand-amber transition-colors shadow-md">
-              섭외 문의서 작성 완료
+            <button type="submit" id="inquiry-submit-btn" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-navy text-white font-semibold text-sm hover:bg-brand-amber transition-colors shadow-md disabled:opacity-60 disabled:cursor-not-allowed">
+              섭외 문의 보내기
             </button>
           </div>
         </form>
@@ -718,11 +718,19 @@
       }, 2500);
     }
 
-    // 문의 폼 제출 처리 및 모달 표시
+    // 문의 폼 제출 처리 (FormSubmit으로 메일 직통 전송) 및 모달 표시
     const inquiryForm = document.getElementById('inquiry-form');
     const customModal = document.getElementById('custom-modal');
+    const inquirySubmitBtn = document.getElementById('inquiry-submit-btn');
+    const inquirySubmitLabel = '섭외 문의 보내기';
 
-    inquiryForm.addEventListener('submit', (e) => {
+    function showInquiryModal(title, descHtml) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-desc').innerHTML = descHtml;
+      customModal.classList.remove('hidden');
+    }
+
+    inquiryForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const org = document.getElementById('org-name').value.trim();
@@ -741,14 +749,55 @@
         `• 희망 주제: ${topic}\n` +
         `• 세부 내용: ${detail}`;
 
-      copyTextToClipboard(summaryText);
-
       document.getElementById('modal-preview').textContent = summaryText;
       const mailSubject = encodeURIComponent(`[강의섭외문의] ${org} - ${topic}`);
       const mailBody = encodeURIComponent(summaryText);
       document.getElementById('mailto-link').href = `mailto:5469pts@naver.com?subject=${mailSubject}&body=${mailBody}`;
 
-      customModal.classList.remove('hidden');
+      inquirySubmitBtn.disabled = true;
+      inquirySubmitBtn.textContent = '전송 중...';
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/5469pts@naver.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: `[강의섭외문의] ${org} - ${topic}`,
+            _template: 'table',
+            _captcha: 'false',
+            '기관/단체명': org,
+            '담당자': manager,
+            '연락처': contact,
+            '희망 일시/지역': date,
+            '희망 주제': topic,
+            '세부 내용': detail
+          })
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok || data.success) {
+          copyTextToClipboard(summaryText);
+          showInquiryModal(
+            '섭외 문의가 메일로 전송되었습니다',
+            '작성하신 문의 내용이 박태석 강사님 메일(<strong>5469pts@naver.com</strong>)로 바로 접수되었습니다. 확인 후 빠르게 연락드리겠습니다.'
+          );
+        } else {
+          throw new Error('메일 전송 실패: ' + (data.message || res.status));
+        }
+      } catch (err) {
+        console.error('문의 메일 전송 오류:', err);
+        copyTextToClipboard(summaryText);
+        showInquiryModal(
+          '문의 내용이 정리되었습니다',
+          '메일 자동 전송이 지금은 어려워 문의 내용을 클립보드에 복사해 두었습니다. 아래 버튼으로 메일 앱에서 <strong>5469pts@naver.com</strong>으로 보내주시면 바로 확인하겠습니다.'
+        );
+      } finally {
+        inquirySubmitBtn.disabled = false;
+        inquirySubmitBtn.textContent = inquirySubmitLabel;
+      }
     });
 
     function closeModal() {
