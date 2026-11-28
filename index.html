@@ -625,9 +625,18 @@
               <input type="text" id="contact-info" name="contact" required placeholder="예: 010-0000-0000" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
             </div>
             <div>
-              <label for="lecture-date" class="block text-sm font-semibold text-brand-navy mb-1.5">희망 강의 일시 및 지역</label>
-              <input type="text" id="lecture-date" name="date" placeholder="예: 2026년 12월 중 / 서울·대전" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+              <label for="lecture-date" class="block text-sm font-semibold text-brand-navy mb-1.5">희망 강의 날짜</label>
+              <input type="date" id="lecture-date" name="date" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm text-brand-navy focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20 disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed" />
+              <label for="lecture-date-tbd" class="inline-flex items-center gap-2 mt-2.5 text-sm text-slate-600 cursor-pointer select-none">
+                <input type="checkbox" id="lecture-date-tbd" name="date_tbd" value="일정 추후 협의" class="w-4 h-4 rounded border-slate-300 accent-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
+                <span>일정 추후 협의</span>
+              </label>
             </div>
+          </div>
+
+          <div>
+            <label for="lecture-location" class="block text-sm font-semibold text-brand-navy mb-1.5">희망 시간 및 지역</label>
+            <input type="text" id="lecture-location" name="location" placeholder="예: 오후 2시 / 서울·대전" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-amber focus:ring-2 focus:ring-brand-amber/20" />
           </div>
 
           <div>
@@ -793,13 +802,47 @@
       customModal.classList.remove('hidden');
     }
 
+    // 희망 강의 날짜: 오늘 이전 날짜는 선택 불가 + '일정 추후 협의' 체크 처리
+    const lectureDateInput = document.getElementById('lecture-date');
+    const lectureDateTbd = document.getElementById('lecture-date-tbd');
+    if (lectureDateInput) {
+      const now = new Date();
+      const pad = (n) => String(n).padStart(2, '0');
+      lectureDateInput.min = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+    }
+    if (lectureDateInput && lectureDateTbd) {
+      lectureDateTbd.addEventListener('change', () => {
+        if (lectureDateTbd.checked) {
+          lectureDateInput.value = '';
+          lectureDateInput.disabled = true;
+        } else {
+          lectureDateInput.disabled = false;
+        }
+      });
+    }
+
+    // 2026-12-05 → 2026년 12월 5일 (토)
+    function formatLectureDate(value) {
+      if (!value) return '';
+      const parts = value.split('-');
+      if (parts.length !== 3) return value;
+      const [y, m, d] = parts.map(Number);
+      const weekdays = ['일', '월', '화', '수', '목', '금', '토'];
+      const day = new Date(y, m - 1, d).getDay();
+      return `${y}년 ${m}월 ${d}일 (${weekdays[day]})`;
+    }
+
     inquiryForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const org = document.getElementById('org-name').value.trim();
       const manager = document.getElementById('manager-name').value.trim();
       const contact = document.getElementById('contact-info').value.trim();
-      const date = document.getElementById('lecture-date').value.trim() || '추후 협의';
+      const dateTbd = lectureDateTbd && lectureDateTbd.checked;
+      const dateText = dateTbd
+        ? '일정 추후 협의'
+        : (formatLectureDate(lectureDateInput ? lectureDateInput.value : '') || '미정');
+      const location = document.getElementById('lecture-location').value.trim() || '미정';
       const topic = document.getElementById('lecture-topic').value.trim();
       const detail = document.getElementById('lecture-detail').value.trim() || '없음';
 
@@ -808,7 +851,8 @@
         `• 기관/단체명: ${org}\n` +
         `• 담당자: ${manager}\n` +
         `• 연락처: ${contact}\n` +
-        `• 희망 일시/지역: ${date}\n` +
+        `• 희망 강의 날짜: ${dateText}\n` +
+        `• 희망 시간/지역: ${location}\n` +
         `• 희망 주제: ${topic}\n` +
         `• 세부 내용: ${detail}`;
 
@@ -834,7 +878,8 @@
             '기관/단체명': org,
             '담당자': manager,
             '연락처': contact,
-            '희망 일시/지역': date,
+            '희망 강의 날짜': dateText,
+            '희망 시간/지역': location,
             '희망 주제': topic,
             '세부 내용': detail
           })
